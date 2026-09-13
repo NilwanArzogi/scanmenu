@@ -90,7 +90,7 @@ export default function ProductDetail() {
         </div>
       </div>
 
-      <div className="sticky bottom-0 border-t border-border bg-surface p-4">
+      <div className="sticky bottom-0 border-t border-border bg-surface p-4 pb-safe">
         <Button
           className="w-full"
           disabled={!product.is_available}

@@ -40,7 +40,7 @@ Route::prefix('admin')->group(function () {
 
             Route::get('products', [AdminProductController::class, 'index']);
             Route::post('products', [AdminProductController::class, 'store']);
-            Route::post('products/{product}', [AdminProductController::class, 'update']);
+            Route::put('products/{product}', [AdminProductController::class, 'update']);
             Route::delete('products/{product}', [AdminProductController::class, 'destroy']);
 
             Route::get('tables', [AdminTableController::class, 'index']);

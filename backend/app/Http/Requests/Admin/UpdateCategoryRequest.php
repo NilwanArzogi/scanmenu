@@ -3,7 +3,6 @@
 namespace App\Http\Requests\Admin;
 
 use Illuminate\Foundation\Http\FormRequest;
-use Illuminate\Support\Str;
 use Illuminate\Validation\Rule;
 
 class UpdateCategoryRequest extends FormRequest
@@ -15,15 +14,17 @@ class UpdateCategoryRequest extends FormRequest
 
     public function rules(): array
     {
+        $categoryId = $this->route('category')->id;
+
         return [
-            'name' => ['required', 'string', 'max:255'],
+            'name' => ['required', 'string', 'max:255', Rule::unique('categories', 'name')->ignore($categoryId)],
         ];
     }
 
-    protected function prepareForValidation(): void
+    public function messages(): array
     {
-        $this->merge([
-            'slug' => Str::slug($this->input('name')),
-        ]);
+        return [
+            'name.unique' => 'Kategori dengan nama ini sudah ada.',
+        ];
     }
 }

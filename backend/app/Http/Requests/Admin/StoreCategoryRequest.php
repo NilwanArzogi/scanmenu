@@ -3,26 +3,25 @@
 namespace App\Http\Requests\Admin;
 
 use Illuminate\Foundation\Http\FormRequest;
-use Illuminate\Support\Str;
 
 class StoreCategoryRequest extends FormRequest
 {
     public function authorize(): bool
     {
-        return true; 
+        return true;
     }
 
     public function rules(): array
     {
         return [
-            'name' => ['required', 'string', 'max:255'],
+            'name' => ['required', 'string', 'max:255', 'unique:categories,name'],
         ];
     }
 
-    protected function prepareForValidation(): void
+    public function messages(): array
     {
-        $this->merge([
-            'slug' => Str::slug($this->input('name')),
-        ]);
+        return [
+            'name.unique' => 'Kategori dengan nama ini sudah ada.',
+        ];
     }
 }

@@ -103,7 +103,7 @@ export default function Checkout() {
         {error && <p className="text-sm text-danger">{error}</p>}
       </div>
 
-      <div className="sticky bottom-0 border-t border-border bg-surface p-4">
+      <div className="sticky bottom-0 border-t border-border bg-surface p-4 pb-safe">
         <Button className="w-full" onClick={handleSubmit} disabled={submitting}>
           {submitting ? "Memproses..." : `Buat Pesanan · ${formatCurrency(subtotal)}`}
         </Button>

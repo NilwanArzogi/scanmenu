@@ -26,3 +26,18 @@ body {
   -ms-overflow-style: none;
   scrollbar-width: none;
 }
+
+@supports (padding: max(0px)) {
+  body {
+    padding-left: env(safe-area-inset-left);
+    padding-right: env(safe-area-inset-right);
+  }
+}
+
+.pb-safe {
+  padding-bottom: max(1rem, env(safe-area-inset-bottom));
+}
+
+.pt-safe {
+  padding-top: max(0px, env(safe-area-inset-top));
+}

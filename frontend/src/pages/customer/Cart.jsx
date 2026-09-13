@@ -39,7 +39,7 @@ export default function Cart() {
             ))}
           </div>
 
-          <div className="sticky bottom-0 flex flex-col gap-3 border-t border-border bg-surface p-4">
+          <div className="sticky bottom-0 flex flex-col gap-3 border-t border-border bg-surface p-4 pb-safe">
             <div className="flex items-center justify-between text-sm">
               <span className="text-text-secondary">Subtotal</span>
               <span className="font-semibold text-text-primary">
